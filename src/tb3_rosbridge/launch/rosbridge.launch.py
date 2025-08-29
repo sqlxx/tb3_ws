@@ -12,5 +12,5 @@ def generate_launch_description():
         "port": 9090,
         "retry_startup_delay": 5.0
       }]
-    )
+    ),
   ])
