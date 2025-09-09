@@ -6,14 +6,14 @@ from launch.substitutions import LaunchConfiguration
 from launch.actions import DeclareLaunchArgument
 
 def generate_launch_description():
-  pkg_dir = get_package_share_directory('tb3_slam_toolbox')
-  use_sim_time = LaunchConfiguration('use_sim_time', default='true')
-  params_file = LaunchConfiguration('params_file', default=os.path.join(pkg_dir, 'config/slam_toolbox_params.yaml'))
+  pkg_dir = get_package_share_directory('tb3_slam')
+  use_sim_time = LaunchConfiguration('use_sim_time', default='false')
+  params_file = LaunchConfiguration('params_file', default=os.path.join(pkg_dir, 'config/slam_toolbox_localization_params.yaml'))
 
   return LaunchDescription([
     DeclareLaunchArgument(
       'use_sim_time',
-      default_value='true',
+      default_value='false',
       description='use simulation clock if true'
     ),
     DeclareLaunchArgument(
@@ -23,12 +23,12 @@ def generate_launch_description():
     ),
     Node(
       package="slam_toolbox",
-      executable='async_slam_toolbox_node',
+      executable='localization_slam_toolbox_node',
       name='slam_toolbox',
       output='screen',
       parameters=[params_file, {'use_sim_time': use_sim_time}],
       remappings=[
-        ('/scan', '/scan')
+        ('/map', '/slam_map')
       ]
     )
   ])

@@ -302,4 +302,6 @@ AMENT_IGNORE
 .history
 .ionide
 
+map/
+
 # End of https://www.toptal.com/developers/gitignore/api/macos,linux,visualstudiocode,ros2,c++,python
