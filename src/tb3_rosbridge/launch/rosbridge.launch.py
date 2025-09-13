@@ -10,7 +10,10 @@ def generate_launch_description():
       name="rosbridge_websocket_server",
       parameters=[{
         "port": 9090,
-        "retry_startup_delay": 5.0
+        "retry_startup_delay": 5.0,
+        "call_services_in_new_thread": True,
+        "send_action_goals_in_new_thread": True,
+        "default_call_service_timeout": 5.0
       }]
     ),
   ])
