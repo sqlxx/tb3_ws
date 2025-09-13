@@ -30,8 +30,8 @@ def generate_launch_description():
     ), allow_substs=True
   )
   
-  # lifecycle_nodes = ['map_server']
-  lifecycle_nodes = ['map_server', 'amcl']
+  lifecycle_nodes = ['map_server']
+  # lifecycle_nodes = ['map_server', 'amcl']
 
   nodes = GroupAction(
     condition=IfCondition(PythonExpression(['not ', use_composition])),

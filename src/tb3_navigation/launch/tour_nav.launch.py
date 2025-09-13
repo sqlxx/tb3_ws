@@ -63,5 +63,13 @@ def generate_launch_description():
         'use_composition': use_composition, 
         'container_name': container_name,
         'use_amcl': use_amcl}.items(),
+    ),
+    IncludeLaunchDescription(
+      PathJoinSubstitution([FindPackageShare('tb3_navigation'), 'launch', 'navigation.launch.py']),
+      launch_arguments={
+        'use_sim_time': use_sim_time, 
+        'log_level': log_level, 
+        'use_composition': use_composition, 
+        'container_name': container_name}.items(),
     )
   ])
