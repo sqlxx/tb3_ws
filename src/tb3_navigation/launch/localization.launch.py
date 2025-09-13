@@ -42,7 +42,7 @@ def generate_launch_description():
         name='lifecycle_manager_localization',
         output='screen',
         arguments=['--ros-args', '--log-level', log_level],
-        parameters=[{'use_sim_time': use_sim_time}, {'node_names': lifecycle_nodes}, {'autostart': 'true'}]
+        parameters=[{'use_sim_time': use_sim_time}, {'node_names': lifecycle_nodes}, {'autostart': True}]
       ),
       Node(
         package='nav2_map_server',
